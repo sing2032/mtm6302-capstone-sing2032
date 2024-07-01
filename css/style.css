@@ -1,0 +1,138 @@
+:root {
+    --primary: #fff;
+    --secondary:#bc7d30;
+    
+}
+
+/* Local Fonts */
+@font-face {
+    font-family: "Nasi";
+    src: url(fonts/nasi/nasi.otf);
+
+}
+
+@font-face {
+    font-family: "Candara";
+    src: url(fonts/candara/Candara.ttf);
+}
+
+
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    background-image: url(../images/mockup.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+
+    color: white;
+    letter-spacing: .2rem;
+    text-align: center;
+    font-family: "Candara";
+    line-height: 1.2;
+
+
+    /* height:100vh; */
+    overflow:hidden;
+   
+    
+}
+
+main{
+    max-width: 600px;
+    margin: 19rem auto;
+  
+    
+}
+
+.wrapper{
+    margin:  auto;
+
+}
+
+
+.selector{
+    text-transform: uppercase;
+}
+
+.date{
+    font-family: "nasi";
+    font-size: 2rem;
+
+}
+
+.date span{
+    color: var(--secondary);
+    
+}
+
+h1{
+    font-size: 2rem;
+    letter-spacing: .2rem;
+    font-family: "nasi";
+}
+
+hr{
+    border: 2px solid var(--secondary);
+    margin: 2rem auto;
+    width: 6rem;
+}
+
+.date-heading{
+    margin: 1rem auto;
+    text-transform: uppercase;
+}
+
+.primary-button{
+    margin-top: 3rem;
+    text-transform: uppercase;
+    
+}
+
+
+.primary-button a:visited{
+    color: var(--primary);
+}
+
+.primary-button a:link{
+    color: var(--primary);
+}
+
+.primary-button a:hover{
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+@media screen and (min-width:760px){
+    .wrapper{
+        display: flex;
+        
+
+    }
+
+    .name-title{
+        text-align: right;
+        display: flex;
+    }
+
+    hr{
+        border: 2px solid var(--secondary);
+        width: 0;
+        margin:0 0 0 2rem;
+    }
+
+    .selector{
+        margin-left: 2rem;
+        text-align: left;
+    }
+    
+
+    .date-heading{
+        margin-top:0;
+    }
+}
