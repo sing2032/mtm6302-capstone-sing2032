@@ -1,138 +1,365 @@
 :root {
     --primary: #fff;
-    --secondary:#bc7d30;
-    
-}
-
-/* Local Fonts */
-@font-face {
-    font-family: "Nasi";
-    src: url(fonts/nasi/nasi.otf);
-
-}
-
-@font-face {
-    font-family: "Candara";
-    src: url(fonts/candara/Candara.ttf);
-}
-
-
-
-*{
-    box-sizing: border-box;
+    --secondary: #bc7d30;
 }
 
 body {
     background-color: rgb(0, 0, 0);
-    background-image: url(../images/mockup.png);
+    background-image: url('../images/mockup.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
-
     color: white;
     letter-spacing: .2rem;
     text-align: center;
     font-family: "Candara";
     line-height: 1.2;
-
-
-    /* height:100vh; */
-    overflow:hidden;
-   
-    
+    overflow-x: hidden;
 }
 
-main{
+.wrapper {
     max-width: 600px;
-    margin: 19rem auto;
-  
-    
+    margin: 14rem auto 13rem auto;
+    display: flex;
+    flex-direction: column;
 }
 
-.wrapper{
-    margin:  auto;
-
-}
-
-
-.selector{
+.selector {
     text-transform: uppercase;
 }
 
-.date{
+.date {
     font-family: "nasi";
     font-size: 2rem;
-
 }
 
-.date span{
+.date span {
     color: var(--secondary);
-    
 }
 
-h1{
+h1 {
     font-size: 2rem;
     letter-spacing: .2rem;
     font-family: "nasi";
 }
 
-hr{
+hr {
     border: 2px solid var(--secondary);
     margin: 2rem auto;
     width: 6rem;
 }
 
-.date-heading{
+.date-heading {
     margin: 1rem auto;
     text-transform: uppercase;
 }
 
-.primary-button{
+.primary-button {
     margin-top: 3rem;
-    text-transform: uppercase;
     
 }
 
-
-.primary-button a:visited{
-    color: var(--primary);
+.primary-button:hover{
+    border-color: var(--secondary);
 }
 
-.primary-button a:link{
+.primary-button button {
     color: var(--primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    padding: .2rem 0;
+    border-bottom: 1px solid var(--primary);
 }
 
-.primary-button a:hover{
+.primary-button button:hover {
+    color: var(--secondary);
+    text-decoration: none;
+    
+}
+
+input[type="date"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid var(--secondary);
+    background: transparent;
+    color: var(--primary); 
+    margin-top: 1rem;
+    text-align: center;
+}
+
+input[type="date"]::placeholder {
+    color: var(--primary);
+    opacity: 0.6;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); 
+}
+
+.astronomy-picture {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: sticky;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    margin-bottom: 3rem;
+}
+
+.hd-modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    padding-top: 2rem;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.hd-modal img.hd-content {
+    max-height: 90%; 
+    margin: 0 auto;
+    display: block;
+    object-fit: contain; 
+}
+
+.favourites-btn{
+    margin:0;
+    display: inline;
+}
+
+/* Gallery Modal Styles */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
+    /* padding:2rem; */
+}
+
+.gallery-close {
+    color: #aaa;
+    float: left;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding-right: 1rem;
+}
+
+.gallery-close:hover,
+.gallery-close:focus {
     color: var(--secondary);
     text-decoration: none;
 }
 
-@media screen and (min-width:760px){
-    .wrapper{
-        display: flex;
-        
+.gallery-head-content{
+    padding:2rem 2rem 0 2rem;
+}
 
+.gallery-content {
+    display: grid;
+    gap:2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 3rem;
+    justify-content: center;
+}
+
+.gallery-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-content img:hover {
+    transform: scale(1.05);
+}
+
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.modal-content {
+    margin: auto;
+    padding: 20px;
+    max-width: 1200px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: left;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding-right: 1rem;
+}
+
+.close:hover,
+.close:focus {
+    color:var(--secondary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.image-fav {
+    position: relative;
+}
+
+.image-fav .astronomy-picture {
+    width: 100%;
+    max-height: 25rem;
+    object-fit: cover;
+}
+
+/* Style for the favorite icon */
+.fav-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 24px;
+    height: 24px;
+    fill: #fff; 
+    cursor: pointer;
+    transition: fill 0.3s;
+}
+
+.fav-icon.clicked {
+    fill: var(--secondary); 
+}
+
+.image-fav {
+    position: relative;
+}
+
+.content-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.explanation-content {
+    text-align: justify;
+}
+
+.title-date {
+    text-align: left;
+}
+
+.title-date p{
+    color: var(--secondary);
+}
+
+.img-credit{
+    color: var(--secondary);
+    text-align: right;
+    padding-bottom: 1rem;
+}
+
+
+.delete-icon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 1;
+    transition: color 0.3s;
+}
+
+.delete-icon:hover {
+    color: var(--secondary);
+}
+
+
+.favorite-item {
+    position: relative;
+}
+
+
+@media screen and (min-width: 760px) {
+    .wrapper{
+        flex-direction: row;
+        margin: 17rem auto 13rem auto;
     }
 
-    .name-title{
+    .name-title {
         text-align: right;
         display: flex;
     }
 
-    hr{
+    hr {
         border: 2px solid var(--secondary);
         width: 0;
-        margin:0 0 0 2rem;
+        margin: 0 0 0 2rem;
     }
 
-    .selector{
+    .modal{
+        padding-top:2rem;
+    }
+
+    .selector {
         margin-left: 2rem;
         text-align: left;
     }
-    
 
-    .date-heading{
-        margin-top:0;
+    .date-heading {
+        margin-top: 0;
     }
+
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+    }
+
+    .image-fav {
+        grid-column: 2/3;
+    }
+
+    .explanation-content {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .gallery-modal-content{
+        text-align: left;
+    }
+
+    .gallery-content{
+        grid-template-columns: repeat(3,1fr);
+        justify-content: flex-start;
+    }
+
+
+    
 }

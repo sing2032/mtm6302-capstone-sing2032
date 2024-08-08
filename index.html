@@ -9,7 +9,7 @@
 </head>
 <body>
     <main>
-        <div class="wrapper">
+        <div id="wrapper" class="wrapper">
             <div class="name-title">
                 <h1>Astronomy <br> Picture Of <br>The Day</h1>
                 <hr>
@@ -17,18 +17,48 @@
             <div>
                 <div class="selector">
                     <p class="date-heading">Pick a date</p>
-                    <p class="date">2024 <span>|</span> 05 <span>|</span> 27</p>
-                    <!-- <p class="favourites">View Favourites &gt;</p> -->
+                    <input type="date" id="apod-date" value="today">
                     <div class="primary-button">
-                        <a href="selected-picture.html" >View Picture &gt;</a>
+                        <button id="view-picture">View Picture &gt;</button>
                     </div>
-                    
                 </div>
             </div>
-            
+           
+           
         </div>
-       
+
+        <!-- Modal Structure -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div id="modal-body"></div>
+            </div>
+        </div>
+
+        <!-- High Definition Modal -->
+        <div id="hd-modal" class="hd-modal">
+            <span class="hd-close">&times;</span>
+            <img class="hd-content" id="hd-img">
+        </div>
+
+        <!-- Gallery Modal Structure -->
+        <div id="gallery-modal" class="gallery-modal">
+            <div class="gallery-modal-content">
+                <div class="gallery-head-content">
+                    <span class="gallery-close">&#11164;</span>
+                    <h1>Favorites</h1>
+                    <p>A gallery of images you have favorited!</p>
+                </div>
+                
+                <div id="gallery-content" class="gallery-content"></div>
+            </div>
+        </div>
+
+
+        <div class="favourites-btn primary-button">
+            <button id="open-gallery">Favourites &gt;</button>
+        </div>
     </main>
-    
+
+    <script src="script.js"></script>
 </body>
 </html>
