@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const apiKey = 'kDJTS02g48e3dfUyX0FhxzKz5Vy8u2lvfQbels0C'; // Your NASA API key
+    const apiKey = 'kDJTS02g48e3dfUyX0FhxzKz5Vy8u2lvfQbels0C'; 
     const wrapper = document.getElementById('wrapper');
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modal-body');
